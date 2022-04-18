@@ -4,16 +4,43 @@ networks:
   node_net:
     driver: bridge
 
+volumes:
+  mysqldata:
+
 services:
+  mysql:
+    image: mysql:5.7
+    env_file: ./mysql/mysql.env
+    environment:
+      TZ: 'Asia/Tokyo'
+    # ホスト側のポート:コンテナのポート
+    ports:
+      - '3306:3306'
+    # ボリュームバインド
+    volumes:
+      - ./mysql/conf:/etc/mysql/conf.d/:ro
+      - mysqldata:/var/lib/mysql
+    #使用するネットワーク
+    networks:
+      - node_net
+
   app:
     build: .
     image: node_back
-    container_name: node_backend   # コンテナ名は別名を設定する
+    env_file: ./app.env
+    environment:
+      - TZ=Asia/Tokyo
+      - DEBUG=app:*
+    container_name: node_backend 
     tty: true
     volumes:
       - ./src:/app
     working_dir: "/app"
+    # ポートフォワーディングもかぶらないよう設定
     ports:
-      - 3000:3000 # ポートフォワーディングもかぶらないよう設定
+      - 3000:3000 
     networks:
       - node_net
+    #依存関係（appコンテナより先にdbコンテナが起動するように設定）
+    depends_on:
+      - mysql
