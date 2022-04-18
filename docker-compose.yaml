@@ -1,28 +1,19 @@
 version: '3'
+
+networks:
+  node_net:
+    driver: bridge
+
 services:
   app:
-    # dockerimageのファイルを指定
     build: .
-
-    #イメージ
     image: node_back
-
-    # コンテナ名
-    container_name: node_docker_app
-
+    container_name: node_backend   # コンテナ名は別名を設定する
     tty: true
-
-    # ホスト側のポート:コンテナのポート
-    ports:
-      - '3000:3000'
-
-    # ソースコードを格納するフォルダをマウント
-    #（ホスト側の./srcをコンテナの/appにマウント）
     volumes:
       - ./src:/app
-
-    # 起動時のカレントフォルダを指定
-    working_dir: /app
-
-    # 起動後に実行するコマンドを指定(起動確認用）
-    command: npm start
+    working_dir: "/app"
+    ports:
+      - 3000:3000 # ポートフォワーディングもかぶらないよう設定
+    networks:
+      - node_net
