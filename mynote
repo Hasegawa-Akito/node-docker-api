@@ -1,0 +1,15 @@
+///migration方法//////////////////////
+
+以下のコマンドでsequelize用のファイルを生成
+npm install --save sequelize
+npm install -g sequelize-cli
+sequelize init
+
+config/config.jsを作成し環境変数を用いてmysqlのpasswordなどを入力
+modelsのindex.jsでconfigをconfig.jsonではなくconfig.jsをインポートするようにする
+
+migration用のファイルを以下のコマンドで作成
+sequelize model:create --underscored --name user --attributes "作成したいカラムとそのオプション"
+
+以下のコマンドでmigration
+npx sequelize-cli db:migrate

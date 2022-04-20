@@ -1,23 +1,23 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "password": "docker",
+    "database": "api",
+    "host": "mysql",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "process.env.MYSQL_USER",
+    "password": "process.env.MYSQL_ROOT_PASSWORD",
+    "database": "process.env.MYSQL_DATABASE",
+    "host": "process.env.MYSQL_ROOT_HOST",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "process.env.MYSQL_USER",
+    "password": "process.env.MYSQL_ROOT_PASSWORD",
+    "database": "process.env.MYSQL_DATABASE",
+    "host": "process.env.MYSQL_ROOT_HOST",
     "dialect": "mysql"
   }
 }
