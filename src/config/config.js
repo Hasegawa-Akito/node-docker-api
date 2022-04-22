@@ -1,4 +1,4 @@
-//っ子のファイルが使用できるようmodels/index.jsのconfig変更
+//このファイルが使用できるようmodels/index.jsのconfig変更
 
 module.exports = {
   'development': {
