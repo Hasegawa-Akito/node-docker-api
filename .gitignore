@@ -2,3 +2,4 @@ node_modules
 mysql.env
 app.env
 .env
+dataCollection.js

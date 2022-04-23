@@ -9,9 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
     "express": "^4.17.3",
+    "jsdom": "^19.0.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.3",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
     "sequelize": "^6.19.0",
     "sequelize-cli": "^6.4.1"
   }

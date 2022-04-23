@@ -13,3 +13,4 @@ sequelize model:create --underscored --name user --attributes "作成したい�
 
 以下のコマンドでmigration
 npx sequelize-cli db:migrate
+
