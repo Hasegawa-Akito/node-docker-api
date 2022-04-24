@@ -14,3 +14,5 @@ sequelize model:create --underscored --name user --attributes "作成したい�
 以下のコマンドでmigration
 npx sequelize-cli db:migrate
 
+データベースのダンプ仕方
+docker exec -it docker_node_api_mysql_1 mysqldump --single-transaction -u ユーザー名 -p データベース名 > backup.sql
