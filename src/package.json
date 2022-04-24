@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node src/bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm i --prefix=src"
+    
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "author": "",
   "license": "ISC",
