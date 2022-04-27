@@ -1,13 +1,12 @@
 
-// expressをrequireする
 const express = require("express");
 
-// ポート番号を変数に設定
+// localではポート番号を3000に設定 
 const portNumber = process.env.PORT || 3000;
 
-// // 別オリジンからのアクセスを許可する（CORSモジュール利用）
-// const cors = require("cors");
-// app.use(cors());
+// 別オリジンからのアクセスを許可する（CORSモジュール利用）
+const cors = require("cors");
+app.use(cors());
 
 // appオブジェクトを作成する
 const app = express();
